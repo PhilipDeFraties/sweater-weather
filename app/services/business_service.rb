@@ -9,7 +9,7 @@ class BusinessService
       faraday.params['location'] = location
       faraday.params['open_at'] = (time + Time.now.to_i)
       faraday.params['categories'] = type
-      faraday.headers["Authorization"] = 'Bearer 4PUZ7qouz08KV23ls8BV-ZRnzKDiHkl3a4fxMMCddyAlgG8ef5X5RbJ8mdQDWAbeGNmr1qKvXlBGKkhMZo0DqV74b-6Pt-L5auLMgp9Qpes6S00PvjjJg0836-gFYHYx'
+      faraday.headers["Authorization"] = ENV['YELP_API_KEY']
     end
     JSON.parse(response.body, symbolize_names: true)
   end
