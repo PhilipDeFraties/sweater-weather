@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get '/forecast', to: 'forecast#search'
       get '/backgrounds', to: 'image#search'
       post '/users', to: 'users#create'
+      post '/sessions', to: 'sessions#create'
     end
   end
 end
