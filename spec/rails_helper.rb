@@ -73,7 +73,10 @@ RSpec.configure do |config|
     config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
     config.hook_into :webmock
     config.configure_rspec_metadata!
-    config.filter_sensitive_data ('API_Key') { ENV['THE_MOVIE_DB_API']}
-    config.default_cassette_options = { re_record_interval: 7.days }
+    config.default_cassette_options = { re_record_interval: 7.days, record: :new_episodes }
+    config.filter_sensitive_data ('MAPQUEST_API_Key') { ENV['MAPQUEST_API_KEY']}
+    config.filter_sensitive_data ('WEATHER_API_Key') { ENV['WEATHER_API_KEY']}
+    config.filter_sensitive_data ('UNSPLASH_API_Key') { ENV['UNSPLASH_API_KEY']}
+    config.filter_sensitive_data ('YELP_API_Key') { ENV['YELP_API_KEY']}
   end
 end
