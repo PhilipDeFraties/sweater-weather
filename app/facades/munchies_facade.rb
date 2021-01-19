@@ -3,7 +3,6 @@ class MunchiesFacade
     route_data = GeocodeService.get_route(query_data[:start], query_data[:end])
     weather_data = WeatherService.find_forecast(route_data[:route][:locations][1][:latLng])
     restaurant_data = BusinessService.find_food(query_data[:food], query_data[:end], route_data[:route][:realTime])
-    binding.pry
     Munchies.new(route_data, weather_data, restaurant_data)
   end
 end
