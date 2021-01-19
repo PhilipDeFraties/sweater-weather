@@ -115,4 +115,26 @@ module ResponseCheckers
     expect(response).to have_key(:error)
     expect(response[:error]).to be_a(String)
   end
+
+  def user_response_checker(response, user)
+    expect(response).to be_a(Hash)
+    expect(response).to have_key(:data)
+    expect(response[:data]).to be_a(Hash)
+    expect(response[:data]).to have_key(:id)
+    expect(response[:data][:id]).to be_a(String)
+    expect(response[:data][:id]).to eq(user.id.to_s)
+    expect(response[:data]).to have_key(:type)
+    expect(response[:data][:type]).to be_a(String)
+    expect(response[:data][:type]).to eq(user.class.to_s.downcase)
+    expect(response[:data]).to have_key(:attributes)
+    expect(response[:data][:attributes]).to be_a(Hash)
+    expect(response[:data][:attributes]).to have_key(:email)
+    expect(response[:data][:attributes][:email]).to be_a(String)
+    expect(response[:data][:attributes][:email]).to eq(user.email)
+    expect(response[:data][:attributes]).to have_key(:api_key)
+    expect(response[:data][:attributes][:api_key]).to be_a(String)
+    expect(response[:data][:attributes][:api_key]).to eq(user.api_key)
+
+    expect(response[:data][:attributes]).to_not have_key(:password)
+  end
 end
