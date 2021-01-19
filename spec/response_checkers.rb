@@ -107,4 +107,12 @@ module ResponseCheckers
     expect(response[:data][:attributes][:image][:credit]).to have_key(:username)
     expect(response[:data][:attributes][:image][:credit][:username]).to be_a(String)
   end
+
+  def error_response_checker(response)
+    expect(response).to be_a(Hash)
+    expect(response).to have_key(:message)
+    expect(response[:message]).to be_a(String)
+    expect(response).to have_key(:error)
+    expect(response[:error]).to be_a(String)
+  end
 end
