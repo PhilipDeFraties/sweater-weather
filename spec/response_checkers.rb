@@ -73,4 +73,38 @@ module ResponseCheckers
       expect(hour[:icon]).to be_a(String)
     end
   end
+
+  def image_response_checker(response)
+    expect(response).to have_key(:data)
+    expect(response[:data]).to be_a(Hash)
+
+    expect(response[:data]).to have_key(:type)
+    expect(response[:data][:type]).to be_a(String)
+    expect(response[:data][:type]).to eq('image')
+
+    expect(response[:data]).to have_key(:id)
+    expect(response[:data][:id]).to eq(nil)
+
+    expect(response[:data]).to have_key(:attributes)
+    expect(response[:data][:attributes]).to be_a(Hash)
+
+    expect(response[:data][:attributes]).to have_key(:image)
+    expect(response[:data][:attributes][:image]).to be_a(Hash)
+
+    expect(response[:data][:attributes][:image]).to have_key(:location)
+    expect(response[:data][:attributes][:image][:location]).to be_a(String)
+
+    expect(response[:data][:attributes][:image]).to have_key(:image_url)
+    expect(response[:data][:attributes][:image][:image_url]).to be_a(String)
+
+    expect(response[:data][:attributes][:image]).to have_key(:credit)
+    expect(response[:data][:attributes][:image][:credit]).to be_a(Hash)
+
+    expect(response[:data][:attributes][:image][:credit]).to have_key(:source)
+    expect(response[:data][:attributes][:image][:credit][:source]).to be_a(String)
+    expect(response[:data][:attributes][:image][:credit][:source]).to eq('unsplash.com')
+
+    expect(response[:data][:attributes][:image][:credit]).to have_key(:username)
+    expect(response[:data][:attributes][:image][:credit][:username]).to be_a(String)
+  end
 end
