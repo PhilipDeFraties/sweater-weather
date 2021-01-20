@@ -12,13 +12,7 @@ RSpec.describe 'RoadTrip Facade' do
 
       roadtrip = RoadTripFacade.plan_road_trip(roadtrip_params)
 
-      expect(roadtrip).to be_a(RoadTrip)
-      expect(roadtrip.end_city).to be_a(String)
-      expect(roadtrip.start_city).to be_a(String)
-      expect(roadtrip.travel_time).to be_a(String)
-      expect(roadtrip.weather_at_eta).to be_a(Hash)
-      expect(roadtrip.weather_at_eta[:temperature]).to be_a(Numeric)
-      expect(roadtrip.weather_at_eta[:conditions]).to be_a(String)
+      roadtrip_checker(roadtrip)
     end
   end
 end
