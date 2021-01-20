@@ -13,7 +13,7 @@ RSpec.describe "User Login" do
       user_params = { email: "whatever@example.com",
                       password: "password" }
       headers = { 'CONTENT_TYPE' => 'application/json' }
-z
+
       post '/api/v1/sessions', headers: headers, params: user_params, as: :json
       login_response = JSON.parse(response.body, symbolize_names: true)
 
