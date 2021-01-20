@@ -38,6 +38,7 @@
 
 ## Schema
  <img src="https://dbdiagram.io/d/60079a6a80d742080a370ed9" width="450" height="350">
+ <iframe width="560" height="315" src='https://dbdiagram.io/embed/60079a6a80d742080a370ed9'> </iframe>
 
 ## Testing
   The program was developed through strict Test-Driven Development, utilizing
