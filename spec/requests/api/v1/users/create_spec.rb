@@ -9,7 +9,7 @@ RSpec.describe "User creation" do
     post '/api/v1/users', headers: headers, params: user_params, as: :json
 
     creation_response = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
+
     expect(response.status).to eq(201)
     user_response_checker(creation_response, User.last)
   end
