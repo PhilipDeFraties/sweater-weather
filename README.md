@@ -26,8 +26,7 @@
     % git clone https://github.com/PhilipDeFraties/sweater-weather.git
     % cd sweater-weather  
     % bundle install
-    % rails db:{create,migrate,seed}
-    % figaro install
+    % rails db:{create,migrate}
     % bundle exec figaro install
   ```
 
