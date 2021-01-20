@@ -60,6 +60,7 @@
   
   #### Example Respons:
   ```
+  
   {:data=>
   {:id=>nil,
    :type=>"forecast",
@@ -90,23 +91,8 @@
        {:time=>"18:00:00", :temperature=>33.94, :wind_speed=>"2.77", :wind_direction=>"N", :conditions=>"clear sky", :icon=>"01n"},
        {:time=>"19:00:00", :temperature=>33.06, :wind_speed=>"1.25", :wind_direction=>"WNW", :conditions=>"clear sky", :icon=>"01n"},
        {:time=>"20:00:00", :temperature=>32.47, :wind_speed=>"1.43", :wind_direction=>"NW", :conditions=>"clear sky", :icon=>"01n"}]}}}
-       ```
-
-### Items CRUD
-  * All items:
-    GET http://localhost:3000/api/v1/items
-
-  * Show an item:
-    GET http://localhost:3000/api/v1/items/:id
-
-  * Create an item:
-    POST http://localhost:3000/api/v1/items
-
-  * Update an item:
-    PATCH http://localhost:3000/api/v1/items/:id
-
-  * Destroy an item:
-    DELETE http://localhost:3000/api/v1/items/:id
+       
+ ```
     
 ## Gems Utilized
   * gem 'factory_bot_rails'
