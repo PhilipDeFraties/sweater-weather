@@ -2,13 +2,14 @@ class Foodie
   attr_reader :end_location,
               :travel_time,
               :forecast,
-              :restaurant
+              :restaurant,
+              :id
 
   def initialize(route_data, weather_data, restaurant_data)
+    @id = nil
     @end_location =  format_city(route_data[:route][:locations][1])
     @travel_time = route_data[:route][:formattedTime]
     @forecast = parse_forecast(weather_data, route_data[:route][:realTime])
-    binding.pry
     @restaurant = { name: restaurant_data[:name],
        address: restaurant_data[:location][:address] }
   end

@@ -1104,6 +1104,7 @@ RSpec.describe 'Roadtrip' do
 
     foodie = Foodie.new(route_data, forecast_data, restaurant_data)
     expect(foodie).to be_a(Foodie)
+    expect(foodie.id).to eq(nil)
     expect(foodie.end_location).to be_a(String)
     expect(foodie.end_location).to eq('Pueblo, CO')
     expect(foodie.forecast).to be_a(Hash)
