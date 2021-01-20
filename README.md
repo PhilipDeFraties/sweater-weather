@@ -12,7 +12,7 @@
   * [Contributor](#contributer)
 
 ## Overview
-  Sweater-Weather is a Rails API that consumes multiple third party API's to provide weather data for a location a person is travelling via search request as well as images and travel time.
+  Sweater-Weather is a Rails API that consumes multiple third party API's to provide weather data for a location a person is travelling via search request as well as images and travel time. Requests and responses are in JSON format.
 
 ## Learning Goals
   * Expose an API
@@ -26,8 +26,7 @@
     % git clone https://github.com/PhilipDeFraties/sweater-weather.git
     % cd sweater-weather  
     % bundle install
-    % rails db:{create,migrate,seed}
-    % figaro install
+    % rails db:{create,migrate}
     % bundle exec figaro install
   ```
 
@@ -54,9 +53,9 @@
 
 ## Endpoints
 ### Forecast
-  GET http://localhost:3000//api/v1/forecast
+  GET http://localhost:3000/api/v1/forecast
   headers: { 'CONTENT_TYPE' => 'application/json' }
-  params: 'location' = 'serch query'
+  params: 'location': 'serch query'
   
   #### Example Respons:
   ```
@@ -93,10 +92,74 @@
        {:time=>"20:00:00", :temperature=>32.47, :wind_speed=>"1.43", :wind_direction=>"NW", :conditions=>"clear sky", :icon=>"01n"}]}}}
        
  ```
-    
+ 
+ ### Background Image
+  GET 'http://localhost:3000/api/v1/backgrounds'
+  params: 'location': 'search query'
+
+  #### Example Respons:
+  ```
+  {:data=>
+   {:id=>nil,
+    :type=>"image",
+    :attributes=>
+     {:image=>
+       {:location=>"denver, co",
+        :image_url=>
+         "https://images.unsplash.com/photo-1600041161228-519e6dd27bac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxOTkzODZ8MHwxfHNlYXJjaHwxfHxkZW52ZXIsJTIwY298ZW58MHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
+        :credit=>{:source=>"unsplash.com", :username=>"mikekilcoyne"}}}}}
+  ```
+ 
+ ### Create User
+  
+  * sending a post request to this route creates a user and an API key is sent in the response, this key is required as a param to utilize the roadtrip endpoint     as seen below
+   
+   POST 'http://localhost:3000/api/v1/users'
+   user_params = { email: "whatever@example.com",
+                    password: "password",
+                    password_confirmation: "password" }
+   headers = { 'CONTENT_TYPE' => 'application/json' }
+   
+   #### Example Response:
+   ```
+   {:data=>{:id=>"300", :type=>"user", :attributes=>{:email=>"whatever@example.com", :api_key=>"chGh6NP1zrXMcTPlHz1qDAtt"}}}
+   ```
+ 
+ ### Login
+  * Currently login is not required to access any of the endpoints, however an API key is required for the roadtrip endpoint, sending a post request to the login     endpoint returns a users API key so that creating a new user is not necessary if a user has already made an account.
+  
+  POST 'http://localhost:3000/api/v1/sessions'
+  user_params = { email: "whatever@example.com",
+                      password: "password" }
+  headers = { 'CONTENT_TYPE' => 'application/json' }
+  
+  #### Example Response:
+  ```
+  {:data=>{:id=>"305", :type=>"user", :attributes=>{:email=>"whatever@example.com", :api_key=>"2GgPKyQ2eGPguOEZj8jUpAtt"}}}
+  
+  ```
+  
+  ### RoadTrip
+   * As noted above, it is first necessary to create a user via post request in order to obtain an API key which is need to access the protected RoadTrip endpoint
+   
+   POST 'http://localhost:3000/api/v1/road_trip'
+   roadtrip_params = {
+        "origin": "Denver,CO",
+        "destination": "Pueblo,CO",
+        "api_key": "API Key"
+      }
+   headers = { 'CONTENT_TYPE' => 'application/json' }
+   
+   #### Example Response:
+   ```
+   {:data=>
+  {:id=>nil,
+   :type=>"road_trip",
+   :attributes=>
+    {:start_city=>"Denver, CO", :end_city=>"Pueblo, CO", :travel_time=>"01:44:22", :weather_at_eta=>{:temperature=>28.13, :conditions=>"clear sky"}}}}
+   ```
+ 
 ## Gems Utilized
-  * gem 'factory_bot_rails'
-  * gem 'faker'
   * gem 'pry'
   * gem 'fast_jsonapi'
   * gem 'rspec-rails'
@@ -110,9 +173,9 @@
   
 
 ## Future Improvements
-  * 
+  * Sad paths were accounted and tested for in several places, however there is no sad path taken into account for mapquest finding no results for a query.
 
-  * 
+  * Currently, the way the road trip endpoint works is to determine the length of time it would take the user to drive from their starting location and returns       the weather for their destination if they were to depart at that given moment. It would make more sense to add an additional query parameter to indicate when     the user intends on departing and adjust the forecasted weather as such. Due to the limitations of the forecast service, the furthest point someone could         intend to leave would be 7 days from the given moment, so that would need to be taken into account
     
 ## Contributor
    Philip DeFraties  
