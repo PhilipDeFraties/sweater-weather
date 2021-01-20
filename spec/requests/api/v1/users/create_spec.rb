@@ -9,17 +9,17 @@ RSpec.describe "User creation" do
     post '/api/v1/users', headers: headers, params: user_params, as: :json
 
     creation_response = JSON.parse(response.body, symbolize_names: true)
-
+    binding.pry
     expect(response.status).to eq(201)
     user_response_checker(creation_response, User.last)
   end
-  
+
   it "email is saved as downcase, responds with appropriate data" do
     user_params = { email: "WHATEVER@EXAMPLE.COM",
                     password: "password",
                     password_confirmation: "password" }
     headers = { 'CONTENT_TYPE' => 'application/json' }
-    post api_v1_users_path, headers: headers, params: user_params, as: :json
+    post '/api/v1/users', headers: headers, params: user_params, as: :json
 
     creation_response = JSON.parse(response.body, symbolize_names: true)
 
