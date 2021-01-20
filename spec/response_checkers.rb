@@ -3,13 +3,21 @@ module ResponseCheckers
     expect(response).to be_a(Hash)
     expect(response).to have_key(:data)
     expect(response[:data]).to be_a(Hash)
-
+    expect(response[:data]).to_not have_key(:lat)
+    expect(response[:data]).to_not have_key(:lon)
+    expect(response[:data]).to_not have_key(:timezone)
+    expect(response[:data]).to_not have_key(:timezone_offset)
     expect(response[:data]).to have_key(:id)
     expect(response[:data][:id]).to eq(nil)
     expect(response[:data]).to have_key(:type)
     expect(response[:data][:type]).to eq('forecast')
     expect(response[:data]).to have_key(:attributes)
     expect(response[:data][:attributes]).to be_a(Hash)
+
+    expect(response[:data][:attributes]).to_not have_key(:lat)
+    expect(response[:data][:attributes]).to_not have_key(:lon)
+    expect(response[:data][:attributes]).to_not have_key(:timezone)
+    expect(response[:data][:attributes]).to_not have_key(:timezone_offset)
 
     expect(response[:data][:attributes]).to have_key(:current_weather)
     expect(response[:data][:attributes][:current_weather]).to be_a(Hash)
@@ -35,6 +43,12 @@ module ResponseCheckers
     expect(response[:data][:attributes][:current_weather]).to have_key(:icon)
     expect(response[:data][:attributes][:current_weather][:icon]).to be_a(String)
 
+    expect(response[:data][:attributes][:current_weather]).to_not have_key(:pressure)
+    expect(response[:data][:attributes][:current_weather]).to_not have_key(:dew_point)
+    expect(response[:data][:attributes][:current_weather]).to_not have_key(:clouds)
+    expect(response[:data][:attributes][:current_weather]).to_not have_key(:wind_deg)
+    expect(response[:data][:attributes][:current_weather]).to_not have_key(:wind_speed)
+
     expect(response[:data][:attributes]).to have_key(:daily_weather)
     expect(response[:data][:attributes][:daily_weather]).to be_an(Array)
     expect(response[:data][:attributes][:daily_weather].count).to eq(5)
@@ -53,6 +67,18 @@ module ResponseCheckers
       expect(day[:conditions]).to be_a(String)
       expect(day).to have_key(:icon)
       expect(day[:icon]).to be_a(String)
+
+      expect(day).to_not have_key(:dt)
+      expect(day).to_not have_key(:pressure)
+      expect(day).to_not have_key(:humidity)
+      expect(day).to_not have_key(:dew_point)
+      expect(day).to_not have_key(:wind_speed)
+      expect(day).to_not have_key(:wind_deg)
+      expect(day).to_not have_key(:clouds)
+      expect(day).to_not have_key(:pop)
+      expect(day).to_not have_key(:uvi)
+      expect(day).to_not have_key(:feels_like)
+      expect(day).to_not have_key(:weather)
     end
 
     expect(response[:data][:attributes]).to have_key(:hourly_weather)
@@ -71,6 +97,15 @@ module ResponseCheckers
       expect(hour[:conditions]).to be_a(String)
       expect(hour).to have_key(:icon)
       expect(hour[:icon]).to be_a(String)
+
+      expect(hour).to_not have_key(:dt)
+      expect(hour).to_not have_key(:feels_like)
+      expect(hour).to_not have_key(:dew_point)
+      expect(hour).to_not have_key(:clouds)
+      expect(hour).to_not have_key(:visibility)
+      expect(hour).to_not have_key(:wind_deg)
+      expect(hour).to_not have_key(:pop)
+      expect(hour).to_not have_key(:pressure)
     end
   end
 
