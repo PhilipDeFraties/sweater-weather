@@ -5,7 +5,7 @@ describe 'Foodie request' do
     foodie_params = {
       start: "denver,co",
       end: "pueblo,co",
-      food: "chinese"
+      search: "italian"
     }
 
     get '/api/v1/foodie', params: foodie_params
