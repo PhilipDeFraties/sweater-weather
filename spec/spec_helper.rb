@@ -16,10 +16,12 @@
 require 'simplecov'
 SimpleCov.start
 require 'response_checkers'
+require 'object_checkers'
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.include ResponseCheckers
+  config.include ObjectCheckers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
