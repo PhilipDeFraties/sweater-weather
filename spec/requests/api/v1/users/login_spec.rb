@@ -13,14 +13,14 @@ RSpec.describe "User Login" do
       user_params = { email: "whatever@example.com",
                       password: "password" }
       headers = { 'CONTENT_TYPE' => 'application/json' }
-
+z
       post '/api/v1/sessions', headers: headers, params: user_params, as: :json
       login_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(200)
       user_response_checker(login_response, @user)
     end
-    
+
     it "valid credentials sent as request body, email is case insensitive" do
       user_params = { email: "WHATEVER@EXAMPLE.COM",
                       password: "password" }
