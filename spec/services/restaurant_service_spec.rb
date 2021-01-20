@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe WeatherService do
-  context 'forecast search' do
+RSpec.describe RestaurantService do
+  context 'restaurant search' do
     it "restaurants for given coordinates and type" do
       VCR.use_cassette('restaurant_service/denver1') do
         coordinates = {lat: 38.2654, lng: -104.6104}
