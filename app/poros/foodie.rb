@@ -14,6 +14,8 @@ class Foodie
        address: restaurant_data[:location][:address] }
   end
 
+  private
+
   def format_city(location)
     city = location[:adminArea5]
     state = location[:adminArea3]
@@ -21,13 +23,20 @@ class Foodie
   end
 
   def parse_forecast(forecast, travel_time)
-    arrival_time = Time.now.to_time.to_i + travel_time
-    forecast[:hourly].each do |forecast|
-      if forecast[:dt] < arrival_time && (forecast[:dt] + 3600) > arrival_time
-        return  {
-            summary: forecast[:weather][0][:description],
-            temperature: forecast[:temp]
-          }
+    if travel_time == 10000000
+      return {
+          summary: "current weather: #{forecast[:current][:weather][0][:description]}",
+          temperature: "current temperature: #{forecast[:current][:temp]}"
+        }
+    else
+      arrival_time = Time.now.to_time.to_i + travel_time
+      forecast[:hourly].each do |forecast|
+        if forecast[:dt] < arrival_time && (forecast[:dt] + 3600) > arrival_time
+          return  {
+              summary: forecast[:weather][0][:description],
+              temperature: "#{forecast[:temp]}"
+            }
+        end
       end
     end
   end
