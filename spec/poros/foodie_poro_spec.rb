@@ -293,7 +293,7 @@ RSpec.describe 'Roadtrip' do
        :locationSequence=>[0, 1],
        :hasFerry=>false},
      :info=>{:statuscode=>0, :copyright=>{:imageAltText=>"© 2020 MapQuest, Inc.", :imageUrl=>"http://api.mqcdn.com/res/mqlogo.gif", :text=>"© 2020 MapQuest, Inc."}, :messages=>[]}}
- forecast_data = {:lat=>38.2654,
+    forecast_data = {:lat=>38.2654,
    :lon=>-104.6104,
    :timezone=>"America/Denver",
    :timezone_offset=>-25200,
@@ -1111,6 +1111,7 @@ RSpec.describe 'Roadtrip' do
     expect(foodie.forecast).to have_key(:summary)
     expect(foodie.forecast[:summary]).to eq('clear sky')
     expect(foodie.forecast).to have_key(:temperature)
+    expect(foodie.forecast[:temperature]).to be_a(String)
     expect(foodie.restaurant).to be_a(Hash)
     expect(foodie.restaurant).to have_key(:name)
     expect(foodie.restaurant[:name]).to eq("Angelo's Pizza Parlor")
