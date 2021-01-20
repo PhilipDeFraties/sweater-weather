@@ -37,8 +37,7 @@
   * Unsplash API: https://api.unsplash.com
 
 ## Schema
- <img src="https://dbdiagram.io/d/60079a6a80d742080a370ed9" width="450" height="350">
- <iframe width="560" height="315" src='https://dbdiagram.io/embed/60079a6a80d742080a370ed9'> </iframe>
+ <img src="https://github.com/PhilipDeFraties/sweater-weather/blob/main/images/sweater-weather%20schema.png" width="450" height="350">
 
 ## Testing
   The program was developed through strict Test-Driven Development, utilizing
