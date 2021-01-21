@@ -11,6 +11,8 @@ class Forecast
     @hourly_weather = hourly_forecasts(weather_data[:hourly][0..7])
   end
 
+  private
+
   def daily_forecasts(daily_data)
     daily_data.map { |day| DailyForecast.new(day) }
   end

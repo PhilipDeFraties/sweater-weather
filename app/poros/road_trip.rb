@@ -12,6 +12,9 @@ class RoadTrip
     @weather_at_eta = parse_forecast(forecast, route[:route][:realTime])
   end
 
+
+  private
+  
   def format_city(route)
     city = route[:adminArea5]
     state = route[:adminArea3]
