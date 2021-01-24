@@ -54,8 +54,7 @@
 ## Endpoints
 ### Forecast
   GET http://localhost:3000/api/v1/forecast
-  headers: { 'CONTENT_TYPE' => 'application/json' }
-  params: 'location': 'serch query'
+  params: 'location': 'denver,co'
   
   #### Example Respons:
   ```
@@ -95,7 +94,7 @@
  
  ### Background Image
   GET 'http://localhost:3000/api/v1/backgrounds'
-  params: 'location': 'search query'
+  params: 'location': 'denver,co'
 
   #### Example Respons:
   ```
@@ -115,10 +114,9 @@
   * sending a post request to this route creates a user and an API key is sent in the response, this key is required as a param to utilize the roadtrip endpoint     as seen below
    
    POST 'http://localhost:3000/api/v1/users'
-   user_params = { email: "whatever@example.com",
+   body = { email: "whatever@example.com",
                     password: "password",
                     password_confirmation: "password" }
-   headers = { 'CONTENT_TYPE' => 'application/json' }
    
    #### Example Response:
    ```
@@ -129,9 +127,8 @@
   * Currently login is not required to access any of the endpoints, however an API key is required for the roadtrip endpoint, sending a post request to the login     endpoint returns a users API key so that creating a new user is not necessary if a user has already made an account.
   
   POST 'http://localhost:3000/api/v1/sessions'
-  user_params = { email: "whatever@example.com",
+  body = { email: "whatever@example.com",
                       password: "password" }
-  headers = { 'CONTENT_TYPE' => 'application/json' }
   
   #### Example Response:
   ```
@@ -143,12 +140,11 @@
    * As noted above, it is first necessary to create a user via post request in order to obtain an API key which is need to access the protected RoadTrip endpoint
    
    POST 'http://localhost:3000/api/v1/road_trip'
-   roadtrip_params = {
+   body = {
         "origin": "Denver,CO",
         "destination": "Pueblo,CO",
         "api_key": "API Key"
       }
-   headers = { 'CONTENT_TYPE' => 'application/json' }
    
    #### Example Response:
    ```
