@@ -16,7 +16,7 @@ executors:
           PGUSER: PhilipDeFraties
       - image: circleci/postgres:12.5
         environment:
-          POSTGRES_DB: sweater-weather_test
+          POSTGRES_DB: sweater-weather_development
           POSTGRES_USER: PhilipDeFraties
           POSTGRES_HOST_AUTH_METHOD: trust
 
