@@ -11,6 +11,8 @@ class Image
     @credit = check_for_credit(image_data)
   end
 
+  private
+
   def check_for_url(image_data)
     unless image_data[:results].empty?
       image_data[:results].first[:urls][:regular]

@@ -16,6 +16,8 @@ class HourlyForecast
     @icon = weather_data[:weather][0][:icon]
   end
 
+  private
+  
   def deg_to_compass(num)
     val = ((num/22.5)+0.5)
     arr =[ "N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
