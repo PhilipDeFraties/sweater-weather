@@ -138,18 +138,19 @@
 
   ```
 
-  ### RoadTrip
-    Takes origin and destination included in body of request and returns travel-time of trip as well as expected weather upon arrival.
-    * As noted above, it is first necessary to create a user via post request in order to obtain an API key which is need to access the protected RoadTrip endpoint
-   
+ ### RoadTrip
+   Takes origin and destination included in body of request and returns travel-time of trip as well as expected weather upon arrival.
+   As noted above, it is first necessary to create a user via post request or login in order to obtain an API key which is need to access the protected RoadTrip endpoint
+   ```
    POST 'http://localhost:3000/api/v1/road_trip'
    body = {
         "origin": "Denver,CO",
         "destination": "Pueblo,CO",
         "api_key": "API Key"
       }
-
+   ```
    #### Example Response:
+   
    ```
    {:data=>
   {:id=>nil,
@@ -157,34 +158,38 @@
    :attributes=>
     {:start_city=>"Denver, CO", :end_city=>"Pueblo, CO", :travel_time=>"01:44:22", :weather_at_eta=>{:temperature=>28.13, :conditions=>"clear sky"}}}}
    ```
-### Foodie
-  Takes origin, destination, and cuisine included in body of request and returns travel-time of trip as well, expected weather upon arrival, and nearest restaurant   serving requested cuisine that will be open upon arrival. 
-   GET 'http://localhost:3000/api/v1/foodie'
-   body = {
-        "start": "denver,co",
-        "end": "pueblo,co",
-        "search": "italian"
-      }
-   ```
-   {
-    "data": {
-        "id": null,
-        "type": "foodie",
-        "attributes": {
-            "end_location": "Pueblo, CO",
-            "travel_time": "01:44:22",
-            "forecast": {
-                "summary": "clear sky",
-                "temperature": "60.51"
-            },
-            "restaurant": {
-                "name": "Angelo's Pizza Parlor",
-                "address": "105 E Riverwalk, Pueblo 81003"
-            }
+   
+  ### Foodie
+   Takes origin, destination, and cuisine included in body of request and returns travel-time of trip as well, expected weather upon arrival, and nearest      restaurant   serving requested cuisine that will be open upon arrival. 
+     ```
+     GET 'http://localhost:3000/api/v1/foodie'
+     body = {
+          "start": "denver,co",
+          "end": "pueblo,co",
+          "search": "italian"
         }
-    }
-}
-```
+     ```
+     #### Example Response:
+     ```
+     {
+      "data": {
+          "id": null,
+          "type": "foodie",
+          "attributes": {
+              "end_location": "Pueblo, CO",
+              "travel_time": "01:44:22",
+              "forecast": {
+                  "summary": "clear sky",
+                  "temperature": "60.51"
+              },
+              "restaurant": {
+                  "name": "Angelo's Pizza Parlor",
+                  "address": "105 E Riverwalk, Pueblo 81003"
+              }
+          }
+      }
+  }
+      ```
 
    #### Example Response:
 ## Gems Utilized
