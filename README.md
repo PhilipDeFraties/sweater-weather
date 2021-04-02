@@ -95,10 +95,14 @@
  ```
 
  ### Background Image
+   Returns single image for location
+  ```
   GET 'http://localhost:3000/api/v1/backgrounds'
   params: 'location': 'denver,co'
-
+  ```
+  
   #### Example Respons:
+  
   ```
   {:data=>
    {:id=>nil,
@@ -114,13 +118,16 @@
  ### Create User
 
   * sending a post request to this route creates a user and an API key is sent in the response, this key is required as a param to utilize the roadtrip endpoint     as seen below
-
+   
+   ```
    POST 'http://localhost:3000/api/v1/users'
    body = { email: "whatever@example.com",
                     password: "password",
                     password_confirmation: "password" }
-
+   ```
+   
    #### Example Response:
+   
    ```
    {:data=>{:id=>"300", :type=>"user", :attributes=>{:email=>"whatever@example.com", :api_key=>"chGh6NP1zrXMcTPlHz1qDAtt"}}}
    ```
@@ -128,11 +135,14 @@
  ### Login
   * Currently login is not required to access any of the endpoints, however an API key is required for the roadtrip endpoint, sending a post request to the login     endpoint returns a users API key so that creating a new user is not necessary if a user has already made an account.
 
+  ```
   POST 'http://localhost:3000/api/v1/sessions'
   body = { email: "whatever@example.com",
                       password: "password" }
-
+  ```
+  
   #### Example Response:
+  
   ```
   {:data=>{:id=>"305", :type=>"user", :attributes=>{:email=>"whatever@example.com", :api_key=>"2GgPKyQ2eGPguOEZj8jUpAtt"}}}
 
@@ -161,35 +171,40 @@
    
   ### Foodie
    Takes origin, destination, and cuisine included in body of request and returns travel-time of trip as well, expected weather upon arrival, and nearest      restaurant   serving requested cuisine that will be open upon arrival. 
-     ```
-     GET 'http://localhost:3000/api/v1/foodie'
-     body = {
-          "start": "denver,co",
-          "end": "pueblo,co",
-          "search": "italian"
-        }
-     ```
-     #### Example Response:
-     ```
-     {
-      "data": {
-          "id": null,
-          "type": "foodie",
-          "attributes": {
-              "end_location": "Pueblo, CO",
-              "travel_time": "01:44:22",
-              "forecast": {
-                  "summary": "clear sky",
-                  "temperature": "60.51"
-              },
-              "restaurant": {
-                  "name": "Angelo's Pizza Parlor",
-                  "address": "105 E Riverwalk, Pueblo 81003"
-              }
-          }
+   
+   ```
+   GET 'http://localhost:3000/api/v1/foodie'
+   body = {
+        "start": "denver,co",
+        "end": "pueblo,co",
+        "search": "italian"
       }
-  }
-      ```
+   ```
+   #### Example Response:
+
+
+   ```
+   {
+    "data": {
+        "id": null,
+        "type": "foodie",
+        "attributes": {
+            "end_location": "Pueblo, CO",
+            "travel_time": "01:44:22",
+            "forecast": {
+                "summary": "clear sky",
+                "temperature": "60.51"
+            },
+            "restaurant": {
+                "name": "Angelo's Pizza Parlor",
+                "address": "105 E Riverwalk, Pueblo 81003"
+            }
+        }
+    }
+}
+    ```
+
+
 
    #### Example Response:
 ## Gems Utilized
