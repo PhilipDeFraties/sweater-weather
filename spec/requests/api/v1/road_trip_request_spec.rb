@@ -7,8 +7,9 @@ describe 'Roadtrip request' do
       password_confirmation: "password")
   end
 
-  it "returns roadtrip info in json if route is possible" do
-    VCR.use_cassette('road_trip/denver_pueblo') do
+  feature "roadtrip" do
+    scenario "returns roadtrip info in json if route is possible", :vcr do
+    # VCR.use_cassette('road_trip/denver_pueblo') do
       roadtrip_params = {
         "origin": "Denver,CO",
         "destination": "Pueblo,CO",
@@ -25,8 +26,8 @@ describe 'Roadtrip request' do
     end
   end
 
-  it "returns empty weather and travel time: impossible if no route" do
-    VCR.use_cassette('road_trip/impossible') do
+  scenario "returns empty weather and travel time: impossible if no route", :vcr do
+    # VCR.use_cassette('road_trip/impossible') do
       roadtrip_params = {
         "origin": "Denver,CO",
         "destination": "London,UK",
@@ -40,6 +41,5 @@ describe 'Roadtrip request' do
 
       error_trip_checker(error_trip_response)
       expect(response.status).to eq(200)
-    end
   end
 end
