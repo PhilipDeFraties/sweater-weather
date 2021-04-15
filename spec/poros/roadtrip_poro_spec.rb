@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Roadtrip' do
-  xit "creates a roadtrip object from service data" do
+  it "creates a roadtrip object from service data" do
     route_data = {:route=>
   {:hasTollRoad=>false,
    :hasBridge=>true,
@@ -1055,6 +1055,6 @@ RSpec.describe 'Roadtrip' do
     :uvi=>3}]}
 
     roadtrip = RoadTrip.new(route_data, forecast_data)
-    roadtrip_checker(roadtrip)
+    expect(roadtrip).to be_a(RoadTrip)
   end
 end
