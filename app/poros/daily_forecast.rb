@@ -6,7 +6,7 @@ class DailyForecast
               :min_temp,
               :conditions,
               :icon
-              
+
   def initialize(weather_data)
     @date = Time.at(weather_data[:dt]).strftime('%Y-%m-%d')
     @sunrise = Time.at(weather_data[:sunrise])
