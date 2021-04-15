@@ -78,5 +78,6 @@ RSpec.configure do |config|
     config.filter_sensitive_data ('WEATHER_API_Key') { ENV['WEATHER_API_KEY']}
     config.filter_sensitive_data ('UNSPLASH_API_Key') { ENV['UNSPLASH_API_KEY']}
     config.filter_sensitive_data ('YELP_API_Key') { ENV['YELP_API_KEY']}
+    # config.allow_http_connections_when_no_cassette = true
   end
 end
