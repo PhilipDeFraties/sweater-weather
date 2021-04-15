@@ -1,3 +1,4 @@
+require 'pry'
 class RoadTrip
   attr_reader :start_city,
               :end_city,
@@ -14,7 +15,7 @@ class RoadTrip
 
 
   private
-  
+
   def format_city(route)
     city = route[:adminArea5]
     state = route[:adminArea3]
@@ -24,11 +25,11 @@ class RoadTrip
   def parse_forecast(forecast, travel_time)
     arrival_time = Time.now.to_time.to_i + travel_time
     forecast[:hourly].each do |forecast|
-      if forecast[:dt] < arrival_time && (forecast[:dt] + 3600) > arrival_time
-        return  {
-            temperature: forecast[:temp],
-            conditions: forecast[:weather][0][:description]
-          }
+      if arrival_time.between?(forecast[:dt], (forecast[:dt] + 3600))
+        return {
+          temperature: forecast[:temp],
+          conditions: forecast[:weather][0][:description]
+        }
       end
     end
   end
