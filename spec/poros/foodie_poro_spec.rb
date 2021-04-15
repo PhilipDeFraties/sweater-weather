@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Roadtrip' do
-  xit "creates a roadtrip object from service data" do
+RSpec.describe 'Foodie' do
+  it "creates a foodie object from service data" do
     route_data = {:route=>
       {:hasTollRoad=>false,
        :hasBridge=>true,
@@ -1104,20 +1104,5 @@ RSpec.describe 'Roadtrip' do
 
     foodie = Foodie.new(route_data, forecast_data, restaurant_data)
     expect(foodie).to be_a(Foodie)
-    expect(foodie.id).to eq(nil)
-    expect(foodie.end_location).to be_a(String)
-    expect(foodie.end_location).to eq('Pueblo, CO')
-    expect(foodie.forecast).to be_a(Hash)
-    expect(foodie.forecast).to have_key(:summary)
-    expect(foodie.forecast[:summary]).to eq('clear sky')
-    expect(foodie.forecast).to have_key(:temperature)
-    expect(foodie.forecast[:temperature]).to be_a(String)
-    expect(foodie.restaurant).to be_a(Hash)
-    expect(foodie.restaurant).to have_key(:name)
-    expect(foodie.restaurant[:name]).to eq("Angelo's Pizza Parlor")
-    expect(foodie.restaurant).to have_key(:address)
-    expect(foodie.restaurant[:address]).to eq('105 E Riverwalk, Pueblo 81003')
-    expect(foodie.travel_time).to be_a(String)
-    expect(foodie.travel_time).to eq('01:44:22')
   end
 end
