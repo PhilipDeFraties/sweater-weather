@@ -10,7 +10,7 @@ module Api
       private
 
       def road_trip_params
-        JSON.parse(request.body.read, symbolize_names: true)
+        params.permit(:origin, :destination, :api_key)
       end
     end
   end
