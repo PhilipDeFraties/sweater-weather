@@ -15,7 +15,7 @@ module Api
       private
 
       def login_params
-        JSON.parse(request.body.read, symbolize_names: true)
+        params.permit(:email, :password)
       end
     end
   end
