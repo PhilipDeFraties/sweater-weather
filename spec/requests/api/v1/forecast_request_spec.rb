@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Forecast" do
-  it "returns the weather forecast for a city" do
-    VCR.use_cassette('forecast/denver') do
-      forecast_params = { location: 'denver, co' }
+  feature "requesting forecast" do
+    scenario "client makes request for weather forecast for a city", :vcr do
+      search_params = { location: 'denver, co' }
       headers = { 'CONTENT_TYPE' => 'application/json' }
-      get '/api/v1/forecast', headers: headers, params: forecast_params
 
+      get '/api/v1/forecast', headers: headers, params: search_params
       weather_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(200)
@@ -17,8 +17,8 @@ RSpec.describe "Forecast" do
   it "responds with error if query param is empty" do
     request_params = { location: '' }
     headers = { 'CONTENT_TYPE' => 'application/json' }
-    get '/api/v1/forecast', headers: headers, params: request_params
 
+    get '/api/v1/forecast', headers: headers, params: request_params
     error_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq(400)

@@ -206,21 +206,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 15 Apr 2021 17:12:32 GMT
+      - Thu, 22 Apr 2021 03:37:24 GMT
       Age:
-      - '57508'
+      - '0'
       X-Served-By:
-      - cache-dca17779-DCA, cache-den8271-DEN
+      - cache-dca17779-DCA, cache-den8279-DEN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1618506752.160048,VS0,VE1
+      - S1619062645.954725,VS0,VE41
       Vary:
       - Accept-Encoding, Origin,Authorization,client-geo-region
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Thu, 15 Apr 2021 17:12:32 GMT
+  recorded_at: Thu, 22 Apr 2021 03:37:25 GMT
 recorded_with: VCR 6.0.0
