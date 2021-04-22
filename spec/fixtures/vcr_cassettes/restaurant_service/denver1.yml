@@ -56,27 +56,27 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Envoy-Upstream-Service-Time:
-      - '1542'
+      - '680'
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 15 Apr 2021 01:14:08 GMT
+      - Thu, 22 Apr 2021 03:28:02 GMT
       Content-Length:
       - '25776'
       Connection:
       - keep-alive
       Set-Cookie:
-      - AWSALBTG=KVzoEkUOOF45yd6HWeew2NIn1hnqjFMzZDlw89xJ1kx5Zrc9i3vzMLegwEgUn6glIWWY/4r8NeitbozKnSFyUdc1MiixgK1NYE41orZH3nt9WdSty+JC6H1kRYpMRItIbzlCHeDLYcH2gUI+WziQdCudK/IxbW+KdtKwCpM0Ix6TYS/jwdw=;
-        Expires=Thu, 22 Apr 2021 01:14:06 GMT; Path=/
-      - AWSALBTGCORS=KVzoEkUOOF45yd6HWeew2NIn1hnqjFMzZDlw89xJ1kx5Zrc9i3vzMLegwEgUn6glIWWY/4r8NeitbozKnSFyUdc1MiixgK1NYE41orZH3nt9WdSty+JC6H1kRYpMRItIbzlCHeDLYcH2gUI+WziQdCudK/IxbW+KdtKwCpM0Ix6TYS/jwdw=;
-        Expires=Thu, 22 Apr 2021 01:14:06 GMT; Path=/; SameSite=None; Secure
-      - csrf=7ef76df04d799584d7c8e40731b57b91; expires=Fri, 16-Apr-2021 01:14:06 GMT;
+      - AWSALBTG=ORSXeYwTVclg2cIrfe5w9T8dV9LxidGXN7ZPUvFsYzbHW9YdbM4VfWIRILdeytpqVoEiabbYC83T5xAwxLkgvWrUE/SQQ2MPhm6un4uL4uhOew0G55KbMGaJ51cFJPfnNlSteTk9chFqdDoWQvWxRhwftV1oaQVODw9nmsG1sfD+4Wo8cG4=;
+        Expires=Thu, 29 Apr 2021 03:28:01 GMT; Path=/
+      - AWSALBTGCORS=ORSXeYwTVclg2cIrfe5w9T8dV9LxidGXN7ZPUvFsYzbHW9YdbM4VfWIRILdeytpqVoEiabbYC83T5xAwxLkgvWrUE/SQQ2MPhm6un4uL4uhOew0G55KbMGaJ51cFJPfnNlSteTk9chFqdDoWQvWxRhwftV1oaQVODw9nmsG1sfD+4Wo8cG4=;
+        Expires=Thu, 29 Apr 2021 03:28:01 GMT; Path=/; SameSite=None; Secure
+      - csrf=035e8686b95b2cbe9af9fadd1b5edd63; expires=Fri, 23-Apr-2021 03:28:01 GMT;
         Max-Age=86400; path=/; domain=.zomato.com; secure
-      - fbcity=305; expires=Tue, 12-Oct-2021 01:14:06 GMT; Max-Age=15552000; path=/;
+      - fbcity=305; expires=Tue, 19-Oct-2021 03:28:01 GMT; Max-Age=15552000; path=/;
         domain=.zomato.com; secure
-      - fbtrack=000bbf4a0d23c016414597a10bd9cda6; expires=Sun, 10-Apr-2022 01:14:06
+      - fbtrack=a85b7ffeb001d55838623248311eb5fb; expires=Sun, 17-Apr-2022 03:28:01
         GMT; Max-Age=31104000; path=/; domain=.zomato.com; secure
-      - zl=en; expires=Tue, 12-Oct-2021 01:14:06 GMT; Max-Age=15552000; path=/; domain=.zomato.com;
+      - zl=en; expires=Tue, 19-Oct-2021 03:28:01 GMT; Max-Age=15552000; path=/; domain=.zomato.com;
         secure
       Cache-Control:
       - max-age=0, no-cache, no-store, no-transform
@@ -146,5 +146,5 @@ http_interactions:
         (Sun, Mon, Tue, Wed, Thu, Fri, Sat)","average_cost_for_two":10,"price_range":1,"currency":"$","highlights":["Lunch","Dinner"],"offers":[],"opentable_support":0,"is_zomato_book_res":0,"mezzo_provider":"OTHER","is_book_form_web_view":0,"book_form_web_view_url":"","book_again_url":"","thumb":"","user_rating":{"aggregate_rating":0,"rating_text":"Not
         rated","rating_color":"CBCBCB","rating_obj":{"title":{"text":"-"},"bg_color":{"type":"grey","tint":"400"}},"votes":3},"all_reviews_count":2,"photos_url":"https:\/\/www.zomato.com\/pueblo-co\/jade-cafe-florence\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop","photo_count":2,"menu_url":"https:\/\/www.zomato.com\/pueblo-co\/jade-cafe-florence\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop","featured_image":"","medio_provider":false,"has_online_delivery":0,"is_delivering_now":0,"store_type":"","include_bogo_offers":true,"deeplink":"zomato:\/\/restaurant\/17589245","is_table_reservation_supported":0,"has_table_booking":0,"events_url":"https:\/\/www.zomato.com\/pueblo-co\/jade-cafe-florence\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1","phone_numbers":"(719)
         784-3888","all_reviews":{"reviews":[{"review":[]},{"review":[]}]},"establishment":[],"establishment_types":[]}}]}'
-  recorded_at: Thu, 15 Apr 2021 01:14:08 GMT
+  recorded_at: Thu, 22 Apr 2021 03:28:02 GMT
 recorded_with: VCR 6.0.0
