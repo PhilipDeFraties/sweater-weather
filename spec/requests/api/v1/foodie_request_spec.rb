@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe 'Foodie request' do
   feature 'Foodie request' do
     scenario "request made to foodie endpoint with valid params", :vcr do
-      foodie_params = {
+      search_params = {
         start: "denver,co",
         end: "pueblo,co",
         search: "italian"
       }
       headers = { 'CONTENT_TYPE' => 'application/json' }
-      post '/api/v1/foodie', headers: headers, params: foodie_params, as: :json
+      post '/api/v1/foodie', headers: headers, params: search_params, as: :json
 
       foodie_response = JSON.parse(response.body, symbolize_names: true)
       expect(response.status).to eq(200)
@@ -17,14 +17,14 @@ RSpec.describe 'Foodie request' do
     end
 
     scenario "request made to foodie endpoint with valid params", :vcr do
-      foodie_params = {
+      search_params = {
         start: "denver,co",
         end: "arvada,co",
         search: "sushi"
       }
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/foodie', headers: headers, params: foodie_params, as: :json
+      post '/api/v1/foodie', headers: headers, params: search_params, as: :json
       foodie_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(200)

@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe "Forecast" do
   feature "requesting forecast" do
     scenario "client makes request for weather forecast for a city", :vcr do
-      forecast_params = { location: 'denver, co' }
+      search_params = { location: 'denver, co' }
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      get '/api/v1/forecast', headers: headers, params: forecast_params
+      get '/api/v1/forecast', headers: headers, params: search_params
       weather_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(200)
