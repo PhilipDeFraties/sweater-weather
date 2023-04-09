@@ -1,0 +1,1 @@
+CREATE USER sweater-weather_development SUPERUSER;
